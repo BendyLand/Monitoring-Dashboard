@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/Users/benlandrette/Qt/6.8.1/macos/lib/QtWidgets.framework/Headers",
+                "/Users/benlandrette/Qt/6.8.1/macos/lib/QtGui.framework/Headers",
+                "/Users/benlandrette/Qt/6.8.1/macos/lib/QtCore.framework/Headers"
+            ],
+            "defines": [],
+            "macFrameworkPath": [
+                "/Users/benlandrette/Qt/6.8.1/macos/lib",
+                "/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/System/Library/Frameworks"
+            ],
+            "compilerPath": "/usr/bin/g++",
+            "intelliSenseMode": "macos-gcc-arm64",
+            "cStandard": "c17",
+            "cppStandard": "c++20"
+        }
+    ],
+    "version": 4
+}

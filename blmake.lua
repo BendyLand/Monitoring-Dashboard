@@ -7,9 +7,17 @@
 Full_build = {
     compiler = "g++",        -- The compiler to be used (e.g., "gcc", "clang")
     files = {"main.cpp"},           -- A list of source files to compile (e.g., "main.cpp", "utils.cpp")
-    include_dirs = {},    -- Directories for include files 
+    include_dirs = {
+        "/Users/benlandrette/Qt/6.8.1/macos/lib/QtWidgets.framework/Headers",
+        "/Users/benlandrette/Qt/6.8.1/macos/lib/QtGui.framework/Headers",
+        "/Users/benlandrette/Qt/6.8.1/macos/lib/QtCore.framework/Headers"
+    }, -- Directories for include files 
     preproc_opts = {},    -- Preprocessor options (e.g., macros, include paths)
     linker_opts = {},     -- Paths to check for included dependencies
+    dependencies = {},    -- Libraries to link against, e.g. {"lib1", "lib2"}
+    framework_paths = {"/Users/benlandrette/Qt/6.8.1/macos/lib"}, -- Paths to check for included dependencies
+    frameworks = {"QtWidgets", "QtGui", "QtCore"}, -- Paths to check for included dependencies
+    dependencies = {},    -- Libraries to link against, e.g. {"lib1", "lib2"}
     output = "main",          -- Output file name (optional, defaults to a.out)
     optimization = "",    -- Optimization level (e.g., "-O2", "-Os")
     debugging = false,    -- A BOOLEAN value indicating whether to include debug info ("-g")
@@ -17,13 +25,12 @@ Full_build = {
     platform_opts = {},   -- Platform-specific options (e.g., architecture flags)
     profiling = "",       -- Profiling options (e.g., "-pg")
     lto = "",             -- Link-time optimization (e.g., "-flto")
-    lang_exts = {"-std=c++20"}, -- Language standard and extensions (e.g., "-std=c11", "-fno-exceptions")
-    dependencies = {},    -- Libraries to link against, e.g. {"lib1", "lib2"}
-    build_type = "Debug",      -- "Debug" or "Release"
+    lang_exts = {"-std=c++20"},       -- Language standard and extensions (e.g., "-std=c11", "-fno-exceptions")
+    build_type = "",      -- "Debug" or "Release"
     env_vars = {},        -- e.g., {CC = "gcc", CXX = "g++"}
     src_dir = "src",         -- Source directory
     out_dir = "out",         -- Output directory
-    hooks = {post_build = "./run.sh"}, -- e.g., {pre_build = "scripts/pre_build.sh"} 
+    hooks = {post_build = "./run.sh"},           -- e.g., {pre_build = "scripts/pre_build.sh"} 
     custom_flags = {},    -- e.g., {"-fno-stack-protector"}
     tests = {},           -- e.g., {"test_suite1", "test_suite2"}
     documentation = "",   -- Directory or command for generating docs

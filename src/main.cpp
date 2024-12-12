@@ -1,3 +1,6 @@
+#include <QApplication>
+#include <QPushButton>
+#include <QWidget>
 #include <iostream>
 
 using std::cout;
