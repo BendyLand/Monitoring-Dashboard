@@ -25,9 +25,12 @@ using std::cout;
 using std::endl;
 using std::string;
 
-int main()
+int main(int argc, char** argv)
 {
-	cout << "Hello Monitoring Dashboard!" << endl;
-
-	return 0;
+	QApplication app(argc, argv);
+	QWidget window;
+	window.resize(800, 600);                       // Set window size
+	window.setWindowTitle("Monitoring Dashboard"); // Set window title
+	window.show();                                 // Display the window
+	return app.exec();
 }
