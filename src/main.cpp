@@ -1,4 +1,4 @@
- /** 
+/** 
  *  Monitoring Dashboard - A simple custom monitoring dashboard.
  *  Copyright (C) 2024 Ben Landrette
  *
@@ -17,20 +17,38 @@
  */
 
 #include <QApplication>
-#include <QPushButton>
+#include <QGridLayout>
+#include <QGroupBox>
+#include <QLabel>
+#include <QProgressBar>
+#include <QVBoxLayout>
 #include <QWidget>
-#include <iostream>
 
-using std::cout;
-using std::endl;
-using std::string;
+QGroupBox * createSection(const QString& title);
 
 int main(int argc, char** argv)
 {
 	QApplication app(argc, argv);
 	QWidget window;
-	window.resize(800, 600);                       // Set window size
-	window.setWindowTitle("Monitoring Dashboard"); // Set window title
-	window.show();                                 // Display the window
+	window.resize(1280, 720);
+	window.setWindowTitle("Monitoring Dashboard");
+	QGridLayout* layout = new QGridLayout(&window);
+	// Create sections
+	layout->addWidget(createSection("CPU Monitoring"), 0, 0);
+	layout->addWidget(createSection("Memory Monitoring"), 0, 1);
+	layout->addWidget(createSection("Network Monitoring"), 0, 2);
+	layout->addWidget(createSection("Storage Monitoring"), 1, 0);
+	layout->addWidget(createSection("Device Info"), 1, 2);
+	window.setStyleSheet("background-color: grey;");
+	window.show();
 	return app.exec();
+}
+
+QGroupBox* createSection(const QString& title)
+{
+	QGroupBox* groupBox = new QGroupBox(title);
+	QVBoxLayout* layout = new QVBoxLayout(groupBox);
+	layout->addWidget(new QLabel("Details here..."));
+	layout->addWidget(new QProgressBar());
+	return groupBox;
 }
