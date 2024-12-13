@@ -24,7 +24,7 @@
 #include <QVBoxLayout>
 #include <QWidget>
 
-QGroupBox * createSection(const QString& title);
+QGroupBox* createSection(const QString& title);
 
 int main(int argc, char** argv)
 {
