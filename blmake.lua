@@ -6,7 +6,10 @@
 
 Full_build = {
     compiler = "g++", -- The compiler to be used (e.g., "gcc", "clang")
-    files = {"main.cpp"}, -- A list of source files to compile (e.g., "main.cpp", "utils.cpp")
+    files = {
+        "main.cpp", 
+        "init.cpp"
+    }, -- A list of source files to compile (e.g., "main.cpp", "utils.cpp")
     include_dirs = {
         "/Users/benlandrette/Qt/6.8.1/macos/lib/QtWidgets.framework",
         "/Users/benlandrette/Qt/6.8.1/macos/lib/QtWidgets.framework/Headers",
