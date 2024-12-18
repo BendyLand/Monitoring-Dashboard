@@ -86,10 +86,11 @@ public:
     void addDevice(const Device& device);
     void addDevices(const std::vector<Device>& devices);
     void removeDevice(uint64_t id);
-    void printConnectedDevices();
-    const std::vector<std::unique_ptr<Device>>& getConnectedDevices();
+    void printConnectedDevices() const;
+    const std::vector<std::unique_ptr<Device>>& getConnectedDevices() const;
     // Constructors
     DeviceManager() = default;
+    DeviceManager(std::vector<Device>& devices) { addDevices(devices); }
     // Copy/Move Constructors and Destructor
     DeviceManager(const DeviceManager& other) noexcept = default;
     DeviceManager(DeviceManager&& other) noexcept = default;

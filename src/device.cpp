@@ -2,7 +2,7 @@
 
 using std::cout; using std::endl; using std::string;
 
-void DeviceManager::printConnectedDevices()
+void DeviceManager::printConnectedDevices() const
 {
     for (const auto& d : this->_connectedDevices) {
         cout << "Name: " << d->getName() << endl;
@@ -36,7 +36,7 @@ void DeviceManager::removeDevice(uint64_t id)
     );
 }
 
-const std::vector<std::unique_ptr<Device>>& DeviceManager::getConnectedDevices()
+const std::vector<std::unique_ptr<Device>>& DeviceManager::getConnectedDevices() const
 {
     return this->_connectedDevices;
 }

@@ -1,4 +1,4 @@
-/** 
+/**
  *  Monitoring Dashboard - A simple custom monitoring dashboard.
  *  Copyright (C) 2024 Ben Landrette
  *
@@ -30,14 +30,12 @@ int main(int argc, char** argv)
 	// window.show();
 	// return app.exec();
 	Device test = Device("test");
-	Device test2 = Device("test2");
+	Device test2 = Device("test2", Metrics{0, 75, 0, 2});
 	Device test3 = Device("test3");
-	DeviceManager manager = DeviceManager();
-	manager.addDevices({test, test2, test3});
-	cout << "Before:" << endl;
+	std::vector<Device> devices = {test, test2, test3};
+	DeviceManager manager = DeviceManager(devices);
 	manager.printConnectedDevices();
 	manager.removeDevice(test2.getId());
-	cout << "After:" << endl;
 	manager.printConnectedDevices();
 
 	return 0;
