@@ -17,13 +17,36 @@
  */
 
 #include "init.hpp"
+#include "device.hpp"
+
+using std::cout; using std::endl; using std::string;
 
 int main(int argc, char** argv)
 {
-	QApplication app(argc, argv);
-	QWidget window;
-	initWindowSettings(window);
-	QGridLayout* layout = initLayout(window);
-	window.show();
-	return app.exec();
+	// QApplication app(argc, argv);
+	// QWidget window;
+	// initWindowSettings(window);
+	// QGridLayout* layout = initLayout(window);
+	// window.show();
+	// return app.exec();
+	Device test = Device("test");
+	cout << "Name: " << test.getName() << endl;
+	cout << "Id: " << test.getId() << endl;
+	cout << test.getMetrics() << endl;
+	test.updateMetric(Metric::CPU, 75.5);
+	cout << test.getMetrics() << endl;
+	test.resetMetrics();
+	cout << test.getMetrics() << endl;
+
+	Device test2 = Device("test2");
+	cout << "Name: " << test2.getName() << endl;
+	cout << "Id: " << test2.getId() << endl;
+	cout << test2.getMetrics() << endl;
+
+	Device test3 = Device("test3");
+	cout << "Name: " << test3.getName() << endl;
+	cout << "Id: " << test3.getId() << endl;
+	cout << test3.getMetrics() << endl;
+
+	return 0;
 }

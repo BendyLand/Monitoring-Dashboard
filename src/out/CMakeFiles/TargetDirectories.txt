@@ -1,0 +1,3 @@
+/Users/benlandrette/ccode/serious-projects/monitoring-dashboard/src/out/CMakeFiles/main.dir
+/Users/benlandrette/ccode/serious-projects/monitoring-dashboard/src/out/CMakeFiles/edit_cache.dir
+/Users/benlandrette/ccode/serious-projects/monitoring-dashboard/src/out/CMakeFiles/rebuild_cache.dir

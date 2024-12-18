@@ -7,6 +7,7 @@
 #include <QProgressBar>
 #include <QVBoxLayout>
 #include <QWidget>
+#include <QLineSeries>
 
 QGroupBox* createSection(const QString& title);
 QGridLayout* initLayout(QWidget& window);

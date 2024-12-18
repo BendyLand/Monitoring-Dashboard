@@ -10,5 +10,13 @@
 # -framework QtWidgets -framework QtGui -framework QtCore \
 # -o out/main
 
-install_name_tool -add_rpath /Users/benlandrette/Qt/6.8.1/macos/lib out/main
-./out/main
+# install_name_tool -add_rpath /Users/benlandrette/Qt/6.8.1/macos/lib out/main
+# ./out/main
+
+# Qt very clearly wants you to use cmake or qmake
+cd src/out
+cmake ..
+make
+./main
+make clean
+cd ../..

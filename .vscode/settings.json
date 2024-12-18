@@ -5,6 +5,8 @@
         "*.scala": "scala",
         "*.txt": "plaintext",
         "qapplication": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "__config": "cpp",
+        "algorithm": "cpp"
     }
 }
