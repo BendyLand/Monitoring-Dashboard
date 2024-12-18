@@ -1,6 +1,8 @@
 #pragma once
 
 #include <iostream>
+#include <memory>
+#include <vector>
 #include "utils.hpp"
 
 enum class Metric
@@ -22,6 +24,25 @@ struct Metrics
 class Device
 {
 public:
+    Device& operator=(const Device& other) noexcept 
+    {
+        if (this == &other) return *this; // handle self-assignment
+        _name = other._name;
+        _id = other._id;
+        _metrics = other._metrics;
+        return *this;
+    }
+    Device& operator=(Device&& other) noexcept 
+    {
+        if (this == &other) return *this; 
+        _name = std::move(other._name);
+        _id = other._id;
+        _metrics = std::move(other._metrics);
+        // Reset the moved-from object id
+        other._id = 0;
+        return *this;
+    }
+
     // Methods
     std::string getName() const;
     uint64_t getId() const;
@@ -57,3 +78,23 @@ inline std::ostream& operator<<(std::ostream& os, const Metrics& metrics)
     os << "Network: " << metrics.network << "\n";
     return os;
 }
+
+class DeviceManager
+{
+public:
+    // Methods
+    void addDevice(const Device& device);
+    void addDevices(const std::vector<Device>& devices);
+    void removeDevice(uint64_t id);
+    void printConnectedDevices();
+    const std::vector<std::unique_ptr<Device>>& getConnectedDevices();
+    // Constructors
+    DeviceManager() = default;
+    // Copy/Move Constructors and Destructor
+    DeviceManager(const DeviceManager& other) noexcept = default;
+    DeviceManager(DeviceManager&& other) noexcept = default;
+    ~DeviceManager() = default;
+private:
+    // Fields
+    std::vector<std::unique_ptr<Device>> _connectedDevices;
+};

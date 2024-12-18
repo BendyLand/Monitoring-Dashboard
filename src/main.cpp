@@ -30,23 +30,15 @@ int main(int argc, char** argv)
 	// window.show();
 	// return app.exec();
 	Device test = Device("test");
-	cout << "Name: " << test.getName() << endl;
-	cout << "Id: " << test.getId() << endl;
-	cout << test.getMetrics() << endl;
-	test.updateMetric(Metric::CPU, 75.5);
-	cout << test.getMetrics() << endl;
-	test.resetMetrics();
-	cout << test.getMetrics() << endl;
-
 	Device test2 = Device("test2");
-	cout << "Name: " << test2.getName() << endl;
-	cout << "Id: " << test2.getId() << endl;
-	cout << test2.getMetrics() << endl;
-
 	Device test3 = Device("test3");
-	cout << "Name: " << test3.getName() << endl;
-	cout << "Id: " << test3.getId() << endl;
-	cout << test3.getMetrics() << endl;
+	DeviceManager manager = DeviceManager();
+	manager.addDevices({test, test2, test3});
+	cout << "Before:" << endl;
+	manager.printConnectedDevices();
+	manager.removeDevice(test2.getId());
+	cout << "After:" << endl;
+	manager.printConnectedDevices();
 
 	return 0;
 }
